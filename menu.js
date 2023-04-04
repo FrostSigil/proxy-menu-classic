@@ -46,7 +46,6 @@ module.exports.categories = {
 	"Основное": [
 		// https://github.com/tera-classic-mods/npc-summoner
 		{ command: "bank", name: "Банк", color: c.lp },
-		{ command: "pbank", name: "Перс. хранилище", color: c.lp },
 		{ command: "gbank", name: "Банк гильдии", color: c.lp },
 		// https://github.com/tera-classic-mods/auto-bank
 		{ command: "ab", name: "Автобанк", color: c.p },
