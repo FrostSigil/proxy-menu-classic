@@ -1,0 +1,19 @@
+{
+    "name": "proxy-menu",
+    "author": "HSDN",
+    "description": "Proxy Menu",
+    "options": {
+        "cliName": "Proxy Menu",
+        "guiName": "Proxy Menu",
+        "settingsVersion": 1,
+        "settingsFile": "config.json",
+        "settingsMigrator": "settings_migrator.js",
+        "reloadable": true
+    },
+    "dependencies": {
+        "badgui-fix": "https://raw.githubusercontent.com/tera-classic-toolbox/badgui-fix/master/module.json"
+    },
+    "servers": ["https://raw.githubusercontent.com/tera-classic-mods/proxy-menu/master/"],
+    "version": "4/4/2023",
+    "disableAutoUpdate": false
+}

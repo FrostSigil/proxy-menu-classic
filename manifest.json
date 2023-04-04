@@ -1,0 +1,28 @@
+{
+    "files": {
+        "README.md": "9479943cccac58c7f4c7afc805826bc27803a98026875f15566254acb99ce61f",
+        "index.js": "1add8610203be7d0be9c5d88a1e0aa732c34c7bf8254babeaaab629a2280fb54",
+        "menu.js": {
+            "overwrite": false,
+            "hash": "c6ee258e6b4c8af609fe07811f204b9309ec6c411fe936eba2e519d70f023f48"
+        },
+        "module.json": "f6d4289544606e877601ea704cfcb39c7adfcbcdc8760194c7c5c095c5194e45",
+        "node_modules/moment-timezone/data/meta/latest.json": "1574fc70d8fd2554031aed90b1424371d6775bd9c0cab5cbd20e04753984f501",
+        "node_modules/moment-timezone/data/packed/latest.json": "ccdc6aa04df161122e948b89e0629618094a55fe7e03a70cf88952f823273b2b",
+        "node_modules/moment-timezone/index.js": "b93bc1a0ab15d56e12f0e281bf005d39166952d9208b828e8d056563f3ff1fd1",
+        "node_modules/moment-timezone/moment-timezone.js": "183f03352f1e65da2130b89bced0e02d59bdff8a20eb844d98a803462ec99b4c",
+        "node_modules/moment/index.js": "f0075677245792b113c801a56bd36682461596ac3830e1d1eac2499ad1460184",
+        "settings_migrator.js": "08e94160e5d2dcba26b29a16a53aa153ec7e4463d0db8a6a8c0ac7e1a76bded7"
+    },
+    "defs": {
+        "C_ADMIN": 1,
+        "C_CONFIRM_UPDATE_NOTIFICATION": 1,
+        "C_PCBANGINVENTORY_USE_SLOT": 1,
+        "C_PLAYER_LOCATION": 5,
+        "C_USE_ITEM": 3,
+        "S_ANNOUNCE_UPDATE_NOTIFICATION": 1,
+        "S_PCBANGINVENTORY_DATALIST": 1,
+        "S_RETURN_TO_LOBBY": "raw",
+        "S_SPAWN_ME": 3
+    }
+}
