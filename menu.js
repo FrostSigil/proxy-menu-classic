@@ -38,7 +38,7 @@ module.exports.premium = [
 	// { command: "bank", id: 60264 },
 	// { command: "broker", id: 60265 },
 	// { command: "store", id: 60262 },
-	{ command: "m", id: 60240 },
+	{ command: "m", id: 5023 },
 ];
 
 // Настройка меню
