@@ -13,7 +13,7 @@
     "dependencies": {
         "badgui-fix": "https://raw.githubusercontent.com/tera-classic-toolbox/badgui-fix/master/module.json"
     },
-    "servers": ["https://raw.githubusercontent.com/tera-classic-mods/proxy-menu/master/"],
-    "version": "4/5/2023",
+    "servers": ["https://raw.githubusercontent.com/FrostSigil/proxy-menu-classic/master/"],
+    "version": "4/2025",
     "disableAutoUpdate": false
 }

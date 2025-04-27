@@ -2,7 +2,7 @@
 "use strict";
 
 const DefaultSettings = {
-	"premiumSlotEnabled": false,
+	"premiumSlotEnabled": true,
 	"hotkey": "Ctrl+Shift+M"
 };
 

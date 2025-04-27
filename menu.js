@@ -35,9 +35,9 @@ const c = {
 
 // Настройка премиум-слотов
 module.exports.premium = [
-	// { command: "bank", id: 60264 },
-	// { command: "broker", id: 60265 },
-	// { command: "store", id: 60262 },
+	{ command: "m bank", id: 60264 },
+	{ command: "m broker", id: 60265 },
+	// { command: "m store", id: 60262 },
 	{ command: "m", id: 5023 },
 ];
 

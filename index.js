@@ -3,6 +3,17 @@ const moment = require("moment-timezone");
 const globalShortcut = global.TeraProxy.GUIMode ? require("electron").globalShortcut : null;
 
 module.exports = function ProxyMenu(mod) {
+
+	mod.dispatch.addDefinition("C_REQUEST_CONTRACT", 50, [
+		["name", "refString"],
+		["data", "refBytes"],
+		["type", "int32"],
+		["target", "int64"],
+		["value", "int32"],
+		["name", "string"],
+		["data", "bytes"]
+	], true);
+
 	const COMMAND = "m";
 	const menu = require("./menu");
 	const keybinds = new Set();
@@ -121,8 +132,26 @@ module.exports = function ProxyMenu(mod) {
 			if (arg[0] === "$") {
 				show(arg.slice(1));
 			}
+		},
+		"broker": () => {
+			mod.send("S_NPC_MENU_SELECT", 1, { type: 28 });
+		},
+		"bank": () => {
+			openNPC(27, 1);
 		}
 	});
+
+	function openNPC(type, value) {
+		const buffer = Buffer.alloc(4);
+		buffer.writeUInt32LE(1);
+		mod.send("C_REQUEST_CONTRACT", 50, {
+			type,
+			target: "0",
+			value,
+			name: "",
+			data: buffer
+		});
+	}
 
 	function show(page = null) {
 		const categories = menu.pages !== undefined && menu.pages[page] ? menu.pages[page] : menu.categories;
