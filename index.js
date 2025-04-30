@@ -14,6 +14,14 @@ module.exports = function ProxyMenu(mod) {
 		["data", "bytes"]
 	], true);
 
+	mod.dispatch.addDefinition("S_VOTE_DISMISS_PARTY", 1, [
+		["accept", "byte"]
+	]);
+
+	mod.dispatch.addDefinition("C_VOTE_DISMISS_PARTY", 1, [
+		["accept", "byte"]
+	], true);
+
 	const COMMAND = "m";
 	const menu = require("./menu");
 	const keybinds = new Set();
@@ -98,6 +106,26 @@ module.exports = function ProxyMenu(mod) {
 		}
 	});
 
+	mod.hook("S_BEGIN_THROUGH_ARBITER_CONTRACT", 1, event => {
+		if (!mod.settings.autoaccept) return;
+		autoAcceptPartyInvite(event);
+	});
+
+	mod.hook("S_VOTE_DISMISS_PARTY", 1, () => {
+		if (!mod.settings.autoaccept) return;
+		mod.send("C_VOTE_DISMISS_PARTY", 1, { accept: true	});
+	});
+
+	mod.hook("S_VOTE_RESET_ALL_DUNGEON", 1, () => {
+		if (!mod.settings.autoaccept) return;
+		mod.send("C_VOTE_RESET_ALL_DUNGEON", 1, { accept: true });
+	});
+
+	mod.hook("S_PARTY_LOOTING_METHOD_VOTE", 1, () => {
+		if (!mod.settings.autoaccept) return;
+		mod.send("C_PARTY_LOOTING_METHOD_VOTE", 1, { accept: true });
+	});
+
 	mod.command.add(COMMAND, {
 		"$none": () => show(),
 		"premium": () => {
@@ -136,21 +164,39 @@ module.exports = function ProxyMenu(mod) {
 		"broker": () => {
 			mod.send("S_NPC_MENU_SELECT", 1, { type: 28 });
 		},
-		"bank": () => {
-			openNPC(27, 1);
-		}
+		"bank": arg => { // bank(1), gbank(3), pbank(9), cbank(12);
+			cRequestContract(27, "0", arg, "", 4);
+		},
+		"invite": arg => {
+			cRequestContract(27, "0", 0, arg, 1);
+			mod.command.message(`Приглашаю в группу ${arg}`);
+		},
+		"autoaccept": () => {
+			mod.settings.autoaccept = !mod.settings.autoaccept;
+			mod.command.message(`Авто принятие пати / сброса / ролла : ${mod.settings.autoaccept ? "Включено" : "Выключено"}`);
+		},
 	});
 
-	function openNPC(type, value) {
-		const buffer = Buffer.alloc(4);
-		buffer.writeUInt32LE(1);
+	function cRequestContract(type, target, value, name, dataBuffer) {
+		const buffer = Buffer.alloc(dataBuffer);
+		buffer.writeUInt32LE(value);
 		mod.send("C_REQUEST_CONTRACT", 50, {
-			type,
-			target: "0",
-			value,
-			name: "",
-			data: buffer
+			type, target, value, name, data: buffer
 		});
+	}
+
+	function autoAcceptPartyInvite(event) {
+		mod.send("C_REPLY_THROUGH_ARBITER_CONTRACT", 1, {
+			type: event.type,
+			id: event.id,
+			response: 1,
+			recipient: event.sender
+		});
+		if (event.type === 4) {
+			mod.command.message(`Вступаю в группу к ${event.sender}`);
+		} else if (event.type === 5) {
+			mod.command.message(`Принимаю в группу ${event.sender}`);
+		}
 	}
 
 	function show(page = null) {

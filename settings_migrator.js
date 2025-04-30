@@ -3,7 +3,8 @@
 
 const DefaultSettings = {
 	"premiumSlotEnabled": true,
-	"hotkey": "Ctrl+Shift+M"
+	"hotkey": "Ctrl+Shift+M",	
+	"autoaccept": true,
 };
 
 module.exports = function MigrateSettings(from_ver, to_ver, settings) {

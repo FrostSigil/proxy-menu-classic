@@ -35,7 +35,7 @@ const c = {
 
 // Настройка премиум-слотов
 module.exports.premium = [
-	{ command: "m bank", id: 60264 },
+	{ command: "m bank 1", id: 60264 },
 	{ command: "m broker", id: 60265 },
 	// { command: "m store", id: 60262 },
 	{ command: "m", id: 5023 },
@@ -45,14 +45,14 @@ module.exports.premium = [
 module.exports.categories = {
 	"Основное": [
 		// https://github.com/tera-classic-mods/npc-summoner
-		{ command: "bank", name: "Банк", color: c.lp },
-		{ command: "gbank", name: "Банк гильдии", color: c.lp },
+		{ command: "m bank 1", name: "Банк", color: c.lp },
+		{ command: "m bank 3", name: "Банк гильдии", color: c.lp },
 		{ command: "mail", name: "Почта", color: c.b },
 		// https://github.com/tera-classic-mods/auto-bank
 		{ command: "ab", name: "Автобанк", color: c.p },
 		{},
 		// https://github.com/tera-classic-mods/npc-summoner
-		{ command: "broker", name: "Брокер", color: c.lg },
+		{ command: "m broker", name: "Брокер", color: c.lg },
 		{ command: "store", name: "Торговец", color: c.g },
 		{ command: "sstore", name: "Магазин редкостей", color: c.g },
 		{},
