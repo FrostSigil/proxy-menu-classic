@@ -72,8 +72,6 @@ module.exports.categories = {
 	"Основное": [
 		// https://github.com/tera-classic-mods/auto-loot
 		{ command: "loot auto", name: "Автолут", color: c.p, ifcmd: "loot" },
-		// https://github.com/tera-classic-mods/anti-cc
-		{ command: "cc", name: "Антиоткид", color: c.y, ifcmd: "cc" },
 		{ ifcmd: "translate" },
 		// https://github.com/tera-classic-mods/translate-chat
 		{ command: "translate send", name: "Автоперевод", color: c.lb, ifcmd: "translate", },
@@ -108,14 +106,6 @@ module.exports.categories = {
 };
 
 module.exports.pages = {
-	"loger": {
-		"Reload mods": [
-			{ ifcmd: "cc" },
-			{ command: "proxy reload anti-cc", name: "Anti-CC reload", color: c.p, ifcmd: "cc" },
-			{ ifcmd: "loot" },
-			{ command: "proxy reload auto-loot", name: "auto-loot", color: c.y, ifcmd: "loot" },
-		],
-	},
 	"setting": {
 		"Настройки": [
 		//	{ command: "m hidename", name: "Скрытие имени персонажа", color: c.p },
