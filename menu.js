@@ -85,8 +85,8 @@ module.exports.categories = {
 	"Погода": [
 		{ command: "m aero normal", name: "Нормально", color: c.w },
 		{ command: "m aero snow", name: "Снег", color: c.lb },
-		{ command: "m aero night", name: "Ночь", color: c.b },
-		{ command: "m aero dark", name: "Темно", color: c.br },
+		{ command: "m aero night", name: "Сумерки", color: c.b },
+		{ command: "m aero dark", name: "Ночь", color: c.br },
 	],
 	"Разное": [
 		{ command: "m drop", name: "Покинуть групу", color: c.y },
@@ -94,9 +94,14 @@ module.exports.categories = {
 		{ command: "m disband", name: "Распустить", color: c.br },
 		{ command: "m lobby", name: "Выбор Персонажей", color: c.p },
 		{},
-		{},
+		{ ifnocmd: "tp" },
+		{ command: "tp zone", name: "Телепорт", color: c.b, ifcmd: "tp" },
+		{ command: "tp to", name: "Зона", color: c.r, ifcmd: "tp" },
+		{ command: "tp fav", name: "Избраное", color: c.o, ifcmd: "tp" },
+		{ command: "tp party", name: "Группа", color: c.lg, ifcmd: "tp" },
 		{ command: "tp blink 100", name: "Блинк вперёд", color: c.п, ifcmd: "tp", keybind: "ctrl+w" },
 		{ command: "tp up 350", name: "Блинк вверх", color: c.g, ifcmd: "tp", keybind: "ctrl+q" },
+		{ ifcmd: "tp" },
 		{ command: "m $setting", name: "Настройки", color: c.v },
 	],
 };

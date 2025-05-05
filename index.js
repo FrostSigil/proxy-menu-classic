@@ -160,12 +160,11 @@ module.exports = function ProxyMenu(mod) {
 		if (debug) {
 			debugData = [
 				"Detected NPC:",
-				//`   "value": ${event.options[0]?.type}`,
+				`   "value": ${event.buttons[0]?.type}`,
 				`   "gameId": ${event.gameId}`,
-				`   "templateId": ${event.questId}`,
+				`   "templateId": ${event.templateId}`,
 				`   "huntingZoneId": ${event.huntingZoneId}`
 			];
-			console.log(debugData);
 		}
 	});
 
