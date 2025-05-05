@@ -5,7 +5,7 @@
     "options": {
         "cliName": "Proxy Menu",
         "guiName": "Proxy Menu",
-        "settingsVersion": 2,
+        "settingsVersion": 3,
         "settingsFile": "config.json",
         "settingsMigrator": "settings_migrator.js",
         "reloadable": true
@@ -14,6 +14,6 @@
         "badgui-fix": "https://raw.githubusercontent.com/tera-classic-toolbox/badgui-fix/master/module.json"
     },
     "servers": ["https://raw.githubusercontent.com/FrostSigil/proxy-menu-classic/master/"],
-    "version": "4/2025",
+    "version": "5/2025",
     "disableAutoUpdate": false
 }
