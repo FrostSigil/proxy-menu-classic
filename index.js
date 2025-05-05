@@ -210,23 +210,32 @@ module.exports = function ProxyMenu(mod) {
 	});
 
 	mod.hook("S_BEGIN_THROUGH_ARBITER_CONTRACT", 1, event => { // автопринятие пати
-		if (!mod.settings.autoaccept) return;
-		autoAcceptPartyInvite(event);
+		if (mod.game.me.inDungeon) return;
+		if (mod.settings.autoaccept) {
+			autoAcceptPartyInvite(event);
+			return false;
+		}
 	});
 
 	mod.hook("S_VOTE_DISMISS_PARTY", 1, () => { // розпуск пати
-		if (!mod.settings.autoaccept) return;
-		mod.send("C_VOTE_DISMISS_PARTY", 1, { accept: true	});
+		if (mod.settings.autoaccept) {
+			mod.send("C_VOTE_DISMISS_PARTY", 1, { accept: true	});
+			return false;
+		}
 	});
 
 	mod.hook("S_VOTE_RESET_ALL_DUNGEON", 1, () => { // сброс данжа
-		if (!mod.settings.autoaccept) return;
-		mod.send("C_VOTE_RESET_ALL_DUNGEON", 1, { accept: true });
+		if (mod.settings.autoaccept) {
+			mod.send("C_VOTE_RESET_ALL_DUNGEON", 1, { accept: true });
+			return false;
+		}
 	});
 
 	mod.hook("S_PARTY_LOOTING_METHOD_VOTE", 1, () => { // смена метода лута
-		if (!mod.settings.autoaccept) return;
-		mod.send("C_PARTY_LOOTING_METHOD_VOTE", 1, { accept: true });
+		if (mod.settings.autoaccept) {
+			mod.send("C_PARTY_LOOTING_METHOD_VOTE", 1, { accept: true });
+			return false;
+		}
 	});
 
 	mod.hook("S_LOAD_TOPO", 3, () => { // смена погоды
@@ -290,11 +299,8 @@ module.exports = function ProxyMenu(mod) {
 		broker: () => {
 			mod.send("S_NPC_MENU_SELECT", 1, { type: 28 });
 		},
-		npc: arg => { // bank(1), gbank(3), pbank(9), cbank(12);
-			cRequestContract(27, "0", arg, "", 4);
-		},
-		np: () => {
-			cRequestContract(9, 3518437209083625, 70310, "0", 4);
+		npc: (arg, arg1) => { // (27, ...) -> bank(1), gbank(3), pbank(9), cbank(12);
+			cRequestContract(arg, "0", arg1, "", 4);
 		},
 		invite: arg => {
 			cRequestContract(27, "0", 0, arg, 1);
@@ -302,7 +308,7 @@ module.exports = function ProxyMenu(mod) {
 		},
 		autoaccept: () => {
 			mod.settings.autoaccept = !mod.settings.autoaccept;
-			mod.command.message(`Авто принятие пати / сброса / ролла : ${mod.settings.autoaccept ? "Включено" : "Выключено"}`);
+			mod.command.message(`Авто принятие пати / сброса / метода ролла : ${mod.settings.autoaccept ? "Включено" : "Выключено"}`);
 		},
 		et: (arg) => {
 			mod.send("C_SELECT_EVENT_MATCHING", 1, {

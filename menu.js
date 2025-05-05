@@ -46,8 +46,7 @@ module.exports.categories = {
 	"Торговцы": [
 		{ command: "ab", name: "@", color: c.p, ifcmd: "translate" },
 		{ command: "bank", name: "Банк", color: c.lp },
-		// { command: "m pbank", name: "Перс. хранилище", color: c.lp },
-		// { command: "m cbank", name: "Костюмы", color: c.lp },
+		{ command: "m pbank", name: "Перс. хранилище", color: c.lp },
 		{ command: "gbank", name: "Банк гильдии", color: c.lp },
 		{},
 		{ command: "m broker", name: "Брокер", color: c.lb },
