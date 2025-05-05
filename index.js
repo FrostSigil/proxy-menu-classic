@@ -34,7 +34,6 @@ module.exports = function ProxyMenu(mod) {
 		dark: "Kubel_Fortress_Pegasus_AERO.AERO.Kubel_Fortress_Pegasus_AERO"
 	};
 	const { player, entity, library } = mod.require.library;
-	// let player = null;
 	let contract = null;
 	let contractType = null;
 	let debug = false;
@@ -73,7 +72,7 @@ module.exports = function ProxyMenu(mod) {
 	}
 
 	mod.hook("C_CONFIRM_UPDATE_NOTIFICATION", 1, { order: 100010 }, () => false);
-	mod.hook("C_ADMIN", 1, { order: 100010, filter: { fake: false, silenced: false, modified: null } }, event => {
+	mod.hook("C_ADMIN", 1, { order: 100010, filter: { fake: null, silenced: false, modified: null } }, event => {
 		if (event.command.includes(";")) {
 			event.command.split(";").forEach(cmd => {
 				try {
@@ -85,9 +84,6 @@ module.exports = function ProxyMenu(mod) {
 			return false;
 		}
 	});
-
-	// mod.hook("S_SPAWN_ME", 3, event => { player = event; });
-	// mod.hook("C_PLAYER_LOCATION", 5, event => { player = event; });
 
 	mod.hook("S_RETURN_TO_LOBBY", "raw", () => {
 		premiumAvailable = false;
@@ -149,14 +145,6 @@ module.exports = function ProxyMenu(mod) {
 	});
 
 	mod.hook("S_DIALOG", 10, event => { // just spam F
-		if (mod.settings.spamf) {
-			if (!event.buttons.length) return;
-			for (let i = 0; i < event.buttons.length; i++) {
-				if ([1, 2, 3, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46].includes(event.buttons[i].type)) event.buttons[i].type = 33;
-			}		
-			event.type = 1;
-			return true;
-		}
 		if (debug) {
 			debugData = [
 				"Detected NPC:",
@@ -165,6 +153,14 @@ module.exports = function ProxyMenu(mod) {
 				`   "templateId": ${event.templateId}`,
 				`   "huntingZoneId": ${event.huntingZoneId}`
 			];
+		}
+		if (mod.settings.spamf) {
+			if (!event.buttons.length) return;
+			for (let i = 0; i < event.buttons.length; i++) {
+				if ([1, 2, 3, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46].includes(event.buttons[i].type)) event.buttons[i].type = 33;
+			}		
+			event.type = 1;
+			return true;
 		}
 	});
 
@@ -351,7 +347,7 @@ module.exports = function ProxyMenu(mod) {
 		}
 	});
 
-	function cRequestContract(type, target, value, name, dataBuffer) { // 9, 3518437209016081, 1, "0", 1
+	function cRequestContract(type, target, value, name, dataBuffer) {
 		const buffer = Buffer.alloc(dataBuffer);
 		buffer.writeUInt32LE(value);
 		mod.send("C_REQUEST_CONTRACT", 50, {
