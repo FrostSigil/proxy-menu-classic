@@ -100,6 +100,11 @@ module.exports.categories = {
 		{ command: "tp blink 100", name: "Блинк вперёд", color: c.п, ifcmd: "tp", keybind: "ctrl+w" },
 		{ command: "tp up 350", name: "Блинк вверх", color: c.g, ifcmd: "tp", keybind: "ctrl+q" },
 		{ ifcmd: "tp" },
+		{ command: "guide", name: "Гайд Вкл/Выкл", color: c.o, ifcmd: "guide" },
+		{ command: "guide ui", name: "Настройка", ifcmd: "guide" },
+		{ command: "guide spawnObject", name: "Объекты", color: c.y, ifcmd: "guide" },
+		{ command: "guide debug ui", name: "Отладка", color: c.b, ifcmd: "guide" },
+		{ ifcmd: "guide" },
 		{ command: "m $setting", name: "Настройки", color: c.v },
 	],
 };
