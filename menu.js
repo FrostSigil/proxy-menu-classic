@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 /* eslint-disable quote-props,  comma-dangle */
 "use strict";
 
@@ -43,99 +44,93 @@ module.exports.premium = [
 
 // Настройка меню
 module.exports.categories = {
-	"Торговцы": [
-		{ command: "ab", name: "@", color: c.p, ifcmd: "translate" },
-		{ command: "bank", name: "Банк", color: c.lp },
-		{ command: "m pbank", name: "Перс. хранилище", color: c.lp },
-		{ command: "gbank", name: "Банк гильдии", color: c.lp },
+	Merchants: [
+		{ command: "ab", name: "Autobank", color: c.p, ifcmd: "ab", ifcmd: "ab" },
+		{ command: "banker", name: "Autobank", color: c.p, ifcmd: "banker", ifcmd: "banker" },
+		{ command: "bank", name: "Bank", color: c.lp },
+		{ command: "m pbank", name: "Spec. storage", color: c.lp },
+		{ command: "gbank", name: "Guild bank", color: c.lp },
 		{},
-		{ command: "m broker", name: "Брокер", color: c.lb },
-		{ command: "store", name: "Торговец", color: c.g },
-		{ command: "ssstore", name: "Кристаллы", color: c.lg },
-		{ command: "sstore", name: "Редкости", color: c.y },
-		{ command: "bel", name: "Белликариум", color: c.v },
+		{ command: "m broker", name: "Broker", color: c.lb },
+		{ command: "store", name: "Merchant", color: c.g },
+		{ command: "ssstore", name: "Crystals", color: c.lg },
+		{ command: "sstore", name: "S.store", color: c.y },
 		{},
-		{ command: "vng", name: "Авангард", color: c.b },
-		{ command: "vgc", name: "Кристаллы", color: c.b },
-		{ command: "bsoul", name: "Душегубы", color: c.v },
+		{ command: "vng", name: "Vanguard", color: c.b },
+		{ command: "vgc", name: "Crystals", color: c.b },
+		{ command: "bel", name: "Bellicarium", color: c.v },
 		{},
-		{ command: "acraft", name: "Алхимия", color: c.p },
+		{ command: "acraft", name: "Alchemy", color: c.p },
 		{ command: "acraftr", name: "R", color: c.p },
-		{ command: "scraft", name: "Оружка", color: c.o },
+		{ command: "scraft", name: "Smelting", color: c.o },
 		{ command: "scraftr", name: "R", color: c.o },
-		{ command: "pcraft", name: "Броня", color: c.y },
+		{ command: "pcraft", name: "Processing", color: c.y },
 		{ command: "pcraftr", name: "R", color: c.y },
-		{ command: "ecraft", name: "Грава", color: c.lb },
-		{ command: "ecraftr", name: "R", color: c.lb },
+		{ command: "ecraft", name: "Etching", color: c.lb },
+		{ command: "ecraftr", name: "R", color: c.lb }
 	],
-	"Основное": [
+	Main: [
 		// https://github.com/tera-classic-mods/auto-loot
-		{ command: "loot auto", name: "Автолут", color: c.p, ifcmd: "loot" },
+		{ command: "loot auto", name: "Autoloot", color: c.p, ifcmd: "loot" },
 		{ ifcmd: "translate" },
 		// https://github.com/tera-classic-mods/translate-chat
-		{ command: "translate send", name: "Автоперевод", color: c.lb, ifcmd: "translate", },
+		{ command: "translate send", name: "Auto translation", color: c.lb, ifcmd: "translate" },
 		// https://github.com/tera-classic-mods/gathering-markers
-		{ command: "gat ui", name: "Сбор", color: c.lg },
+		{ command: "gat ui", name: "Gathering markers", color: c.lg },
 		{ ifcmd: "logger" },
 		{ command: "logger", name: "Loger menu", color: c.r, ifcmd: "logger" },
-		{ command: "clear", name: "Очистить чат", color: c.w },
+		{ command: "clear", name: "Clear chat", color: c.w },
+		{ ifcmd: "fps" },
+		{ command: "fps", name: "FPS Menu", color: c.y, ifcmd: "fps" },
+		{ command: "fps 0", name: "FPS 0", color: c.w, ifcmd: "fps" },
+		{ command: "fps 1", name: "FPS 1", color: c.w, ifcmd: "fps" },
+		{ command: "fps 2", name: "FPS 2", color: c.w, ifcmd: "fps" },
+		{ command: "fps 3", name: "FPS 3", color: c.w, ifcmd: "fps" }
 	],
-	"Погода": [
-		{ command: "m aero normal", name: "Нормально", color: c.w },
-		{ command: "m aero snow", name: "Снег", color: c.lb },
-		{ command: "m aero night", name: "Сумерки", color: c.b },
-		{ command: "m aero dark", name: "Ночь", color: c.br },
+	Weather: [
+		{ command: "m aero normal", name: "Default", color: c.g },
+		{ command: "m aero snow", name: "Snow", color: c.lb },
+		{ command: "m aero night", name: "Night", color: c.o },
+		{ command: "m aero dark", name: "Dark", color: c.v }
 	],
-	"Разное": [
-		{ command: "m drop", name: "Покинуть групу", color: c.y },
-		{ command: "m reset", name: "Сброс", color: c.lb },
-		{ command: "m disband", name: "Распустить", color: c.br },
-		{ command: "m lobby", name: "Выбор Персонажей", color: c.p },
+	Other: [
+		{ command: "m drop", name: "Leave party", color: c.y },
+		{ command: "m reset", name: "Reset", color: c.lb },
+		{ command: "m disband", name: "Disband", color: c.br },
+		{ command: "m lobby", name: "Characters", color: c.p },
 		{},
 		{ ifnocmd: "tp" },
-		{ command: "tp zone", name: "Телепорт", color: c.b, ifcmd: "tp" },
-		{ command: "tp to", name: "Зона", color: c.r, ifcmd: "tp" },
-		{ command: "tp fav", name: "Избраное", color: c.o, ifcmd: "tp" },
-		{ command: "tp party", name: "Группа", color: c.lg, ifcmd: "tp" },
-		{ command: "tp blink 100", name: "Блинк вперёд", color: c.п, ifcmd: "tp", keybind: "ctrl+w" },
-		{ command: "tp up 350", name: "Блинк вверх", color: c.g, ifcmd: "tp", keybind: "ctrl+q" },
+		{ command: "tp zone", name: "Teleport", color: c.b, ifcmd: "tp" },
+		{ command: "tp to", name: "Zone", color: c.r, ifcmd: "tp" },
+		{ command: "tp party", name: "Party", color: c.lg, ifcmd: "tp" },
+		{ command: "tp blink 100", name: "Blink front", color: c.п, ifcmd: "tp" },
+		{ command: "tp up 350", name: "Blink Up", color: c.g, ifcmd: "tp" },
 		{ ifcmd: "tp" },
-		{ command: "guide", name: "Гайд Вкл/Выкл", color: c.o, ifcmd: "guide" },
-		{ command: "guide ui", name: "Настройка", ifcmd: "guide" },
-		{ command: "guide spawnObject", name: "Объекты", color: c.y, ifcmd: "guide" },
-		{ command: "guide debug ui", name: "Отладка", color: c.b, ifcmd: "guide" },
+		{ command: "guide", name: "On/Off", color: c.o, ifcmd: "guide" },
+		{ command: "guide ui", name: "Settings", ifcmd: "guide" },
+		{ command: "guide debug ui", name: "Debug", color: c.b, ifcmd: "guide" },
 		{ ifcmd: "guide" },
-		{ command: "m $setting", name: "Настройки", color: c.v },
+		{ command: "m $setting", name: "Others Menu Settings", color: c.v }
 	],
 };
 
 module.exports.pages = {
 	"setting": {
-		"Настройки": [
-		//	{ command: "m hidename", name: "Скрытие имени персонажа", color: c.p },
-		//	{},
-			{ command: "m scene", name: "Пропуск видео заставок", color: c.lp },
+		Settings: [
+			{ command: "m scene", name: "Skipping video intros", color: c.lp },
 			{},
-			{ command: "m drunk", name: "Отключение пьяного экрана", color: c.lg },
+			{ command: "m drunk", name: "Disabling drunk screen", color: c.lg },
 			{},
-			{ command: "m spamf", name: "Just spam F диалогов с NPC", color: c.lv },
+			{ command: "m spamf", name: "JustSpam F", color: c.lv },
 			{},
-		//	{ command: "m tolobby", name: "Отключение таймера при выходе на выбор персонажей", color: c.y },
-		//	{},
-			{ command: "m autoaccept", name: "Авто принятие приглашения в пати", color: c.g },
-		//	{},
-		//	{ command: "m autobox", name: "Авто открытие коробок в один клик", color: c.v },
+			{ command: "m autoaccept", name: "Auto accept party", color: c.lg }
 		],
 		"HSDN mods": [
-			{ command: "m premium", name: "Меню доп. кнопки на VIP панели", color: c.y },
+			{ command: "m premium", name: "Add. buttons VIP-panel", color: c.y },
 			{ ifcmd: "tp" },
-			{ command: "tp premium", name: "Телепорт доп. кнопка на VIP панели", color: c.lb, ifcmd: "tp" },
-			{ ifcmd: "atlas" },
-			{ command: "atlas premium", name: "Атлас доп. кнопка на VIP панели", color: c.lg, ifcmd: "atlas" },
+			{ command: "tp premium", name: "Teleport buttons VIP-panel", color: c.lb, ifcmd: "tp" },
 			{ ifcmd: "back" },
-			{ command: "back ui", name: "Backstab открыть меню настройки", color: c.r, ifcmd: "back" },
-			{ ifcmd: "setlock" },
-			{ command: "setlock", name: "Запрет изменение настроек (чата/интерфейса)", color: c.w, ifcmd: "setlock" },
+			{ command: "back ui", name: "Backstab menu", color: c.r, ifcmd: "back" }
 		],
 	}
 };

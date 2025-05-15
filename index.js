@@ -4,7 +4,7 @@ const globalShortcut = global.TeraProxy.GUIMode ? require("electron").globalShor
 
 module.exports = function ProxyMenu(mod) {
 
-	mod.dispatch.addDefinition('S_DIALOG', 10, __dirname + '/S_DIALOG.def', true);
+	mod.dispatch.addDefinition("S_DIALOG", 10, `${__dirname }/S_DIALOG.def`, true);
 
 	mod.dispatch.addDefinition("C_REQUEST_CONTRACT", 50, [
 		["name", "refString"],
@@ -15,7 +15,7 @@ module.exports = function ProxyMenu(mod) {
 		["name", "string"],
 		["data", "bytes"]
 	], true);
- 
+
 	mod.dispatch.addDefinition("S_VOTE_DISMISS_PARTY", 1, [
 		["accept", "byte"]
 	]);
@@ -25,7 +25,6 @@ module.exports = function ProxyMenu(mod) {
 	], true);
 
 	const COMMAND = "m";
-	const menu = require("./menu");
 	const keybinds = new Set();
 	const weather = {
 		normal: "acn_aeroset.AERO.SPR_Corruption_AERO",
@@ -34,6 +33,21 @@ module.exports = function ProxyMenu(mod) {
 		dark: "Kubel_Fortress_Pegasus_AERO.AERO.Kubel_Fortress_Pegasus_AERO"
 	};
 	const { player, entity, library } = mod.require.library;
+
+	let language = "en";
+
+	try {
+		language = require("../../bin/config").loadConfig()?.uilanguage;
+	} catch (_) { }
+
+	let menu = {};
+
+	try {
+		menu = require(`./menu_${language}`);
+	} catch (_) {
+		menu = require("./menu");
+	}
+
 	let contract = null;
 	let contractType = null;
 	let debug = false;
@@ -158,7 +172,7 @@ module.exports = function ProxyMenu(mod) {
 			if (!event.buttons.length) return;
 			for (let i = 0; i < event.buttons.length; i++) {
 				if ([1, 2, 3, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46].includes(event.buttons[i].type)) event.buttons[i].type = 33;
-			}		
+			}
 			event.type = 1;
 			return true;
 		}
@@ -171,7 +185,7 @@ module.exports = function ProxyMenu(mod) {
 			console.log(data);
 			mod.command.message(data);
 		});
- 
+
 		debugData = [];
 	});
 
@@ -304,11 +318,11 @@ module.exports = function ProxyMenu(mod) {
 		},
 		invite: arg => {
 			cRequestContract(27, "0", 0, arg, 1);
-			mod.command.message(`Приглашаю в группу ${arg}`);
+			mod.command.message(`Invite to group ${arg}`);
 		},
 		autoaccept: () => {
 			mod.settings.autoaccept = !mod.settings.autoaccept;
-			mod.command.message(`Авто принятие пати / сброса / метода ролла : ${mod.settings.autoaccept ? "Включено" : "Выключено"}`);
+			mod.command.message(`Auto accept invite party / reset / roll method : ${mod.settings.autoaccept ? "Enabled" : "Disabled"}`);
 		},
 		et: (arg) => {
 			mod.send("C_SELECT_EVENT_MATCHING", 1, {
@@ -317,15 +331,15 @@ module.exports = function ProxyMenu(mod) {
 		},
 		spamf: () => {
 			mod.settings.spamf = !mod.settings.spamf;
-			mod.command.message(`JustSpam F: ${mod.settings.spamf ? "Включено" : "Выключено"}`);
+			mod.command.message(`JustSpam F: ${mod.settings.spamf ? "On" : "Off"}`);
 		},
 		drunk: () => {
 			mod.settings.drunk = !mod.settings.drunk;
-			mod.command.message(`Скрытие пьяного экрана: ${mod.settings.drunk ? "Скрываю" : "Не скрываю"}`);
+			mod.command.message(`Disabling drunk screen: ${mod.settings.drunk ? "On" : "Off"}`);
 		},
 		scene: () => {
 			mod.settings.blockscene = !mod.settings.blockscene;
-			mod.command.message(`Пропуск видеозаставок: ${mod.settings.blockscene ? "Включен" : "Выключен"}`);
+			mod.command.message(`Skipping video intros: ${mod.settings.blockscene ? "On" : "Off"}`);
 		},
 		aero: (arg) => {
 			if (mod.settings.aeromanual) {
@@ -333,22 +347,22 @@ module.exports = function ProxyMenu(mod) {
 					if (mod.settings.aero === arg) {
 						mod.settings.aeromanual = false;
 						mod.settings.aero = "normal";
-						mod.command.message("Погода отключена.");
+						mod.command.message("Weather off.");
 					} else {
 						mod.settings.aero = arg;
-						mod.command.message(`Погода сменилась на: ${arg}`);
+						mod.command.message(`Weather change on: ${arg}`);
 					}
 					meteo();
 				} else {
-					mod.command.message("Некорректная погода. Доступные варианты: normal, snow, dark, night.");
+					mod.command.message("Incorrect weather. Available options: normal, snow, dark, night.");
 				}
 			} else if (weather[arg]) {
 				mod.settings.aeromanual = true;
 				mod.settings.aero = arg;
-				mod.command.message(`Погода включена: ${arg}`);
+				mod.command.message(`Weather select: ${arg}`);
 				meteo();
 			} else {
-				mod.command.message("Некорректная погода. Доступные варианты: normal, snow, dark, night.");
+				mod.command.message("Incorrect weather. Available options: normal, snow, dark, night.");
 			}
 		}
 	});
@@ -369,9 +383,9 @@ module.exports = function ProxyMenu(mod) {
 			recipient: event.sender
 		});
 		if (event.type === 4) {
-			mod.command.message(`Вступаю в группу к ${event.sender}`);
+			mod.command.message(`Joining the group ${event.sender}`);
 		} else if (event.type === 5) {
-			mod.command.message(`Принимаю в группу ${event.sender}`);
+			mod.command.message(`Accepting to the group ${event.sender}`);
 		}
 	}
 
