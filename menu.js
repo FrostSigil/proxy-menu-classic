@@ -36,9 +36,9 @@ const c = {
 
 // Настройка премиум-слотов
 module.exports.premium = [
-	{ command: "bank", id: 60264 },
+	{ command: "m bank", id: 60264 },
 	{ command: "m broker", id: 60265 },
-	{ command: "store", id: 60262 },
+	{ command: "m store", id: 60262 },
 	{ command: "m", id: 352 },
 ];
 
@@ -47,27 +47,27 @@ module.exports.categories = {
 	Merchants: [
 		{ command: "ab", name: "Autobank", color: c.p, ifcmd: "ab", ifcmd: "ab" },
 		{ command: "banker", name: "Autobank", color: c.p, ifcmd: "banker", ifcmd: "banker" },
-		{ command: "bank", name: "Bank", color: c.lp },
+		{ command: "m bank", name: "Bank", color: c.lp },
 		{ command: "m pbank", name: "Spec. storage", color: c.lp },
-		{ command: "gbank", name: "Guild bank", color: c.lp },
+		{ command: "m gbank", name: "Guild bank", color: c.lp },
 		{},
 		{ command: "m broker", name: "Broker", color: c.lb },
-		{ command: "store", name: "Merchant", color: c.g },
-		{ command: "ssstore", name: "Crystals", color: c.lg },
-		{ command: "sstore", name: "S.store", color: c.y },
+		{ command: "m store", name: "Merchant", color: c.g },
+		{ command: "m ssstore", name: "Crystals", color: c.lg },
+		{ command: "m sstore", name: "S.store", color: c.y },
 		{},
-		{ command: "vng", name: "Vanguard", color: c.b },
-		{ command: "vgc", name: "Crystals", color: c.b },
-		{ command: "bel", name: "Bellicarium", color: c.v },
+		{ command: "m vng", name: "Vanguard", color: c.b },
+		{ command: "m vgc", name: "Crystals", color: c.b },
+		{ command: "m bel", name: "Bellicarium", color: c.v },
 		{},
-		{ command: "acraft", name: "Alchemy", color: c.p },
-		{ command: "acraftr", name: "R", color: c.p },
-		{ command: "scraft", name: "Smelting", color: c.o },
-		{ command: "scraftr", name: "R", color: c.o },
-		{ command: "pcraft", name: "Processing", color: c.y },
-		{ command: "pcraftr", name: "R", color: c.y },
-		{ command: "ecraft", name: "Etching", color: c.lb },
-		{ command: "ecraftr", name: "R", color: c.lb }
+		{ command: "m acraft", name: "Alchemy", color: c.p },
+		{ command: "m acraftr", name: "R", color: c.p },
+		{ command: "m scraft", name: "Smelting", color: c.o },
+		{ command: "m scraftr", name: "R", color: c.o },
+		{ command: "m pcraft", name: "Processing", color: c.y },
+		{ command: "m pcraftr", name: "R", color: c.y },
+		{ command: "m ecraft", name: "Etching", color: c.lb },
+		{ command: "m ecraftr", name: "R", color: c.lb }
 	],
 	Main: [
 		// https://github.com/tera-classic-mods/auto-loot

@@ -212,7 +212,7 @@ const DefaultSettings = {
 			gameId: null,
 			opts: [
 				{ templateId: 1211, huntingZoneId: 63, _value: 184 },
-				{ templateId: 2011, huntingZoneId: 183, _value: 196 }
+				{ templateId: 2010, huntingZoneId: 183, _value: 184 }
 			]
 		},
 		ecraftr: { // recipe
@@ -221,7 +221,7 @@ const DefaultSettings = {
 			gameId: null,
 			opts: [
 				{ templateId: 1214, huntingZoneId: 63, _value: 196 },
-				{ templateId: 2010, huntingZoneId: 183, _value: 184 }
+				{ templateId: 2011, huntingZoneId: 183, _value: 196 }
 			]
 		}
 	}

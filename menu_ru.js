@@ -36,9 +36,9 @@ const c = {
 
 // Настройка премиум-слотов
 module.exports.premium = [
-	{ command: "bank", id: 60264 },
+	{ command: "m bank", id: 60264 },
 	{ command: "m broker", id: 60265 },
-	{ command: "store", id: 60262 },
+	{ command: "m store", id: 60262 },
 	{ command: "m", id: 352 }
 ];
 
@@ -47,27 +47,27 @@ module.exports.categories = {
 	"Торговцы": [
 		{ command: "ab", name: "Autobank", color: c.p, ifcmd: "ab", ifcmd: "ab" },
 		{ command: "banker", name: "Autobank", color: c.p, ifcmd: "banker", ifcmd: "banker" },
-		{ command: "bank", name: "Банк", color: c.lp },
+		{ command: "m bank", name: "Банк", color: c.lp },
 		{ command: "m pbank", name: "Перс. хранилище", color: c.lp },
-		{ command: "gbank", name: "Банк гильдии", color: c.lp },
+		{ command: "m gbank", name: "Банк гильдии", color: c.lp },
 		{},
 		{ command: "m broker", name: "Брокер", color: c.lb },
-		{ command: "store", name: "Торговец", color: c.g },
-		{ command: "ssstore", name: "Кристаллы", color: c.lg },
-		{ command: "sstore", name: "Редкости", color: c.y },
+		{ command: "m store", name: "Торговец", color: c.g },
+		{ command: "m ssstore", name: "Кристаллы", color: c.lg },
+		{ command: "m sstore", name: "Редкости", color: c.y },
 		{},
-		{ command: "vng", name: "Авангард", color: c.b },
-		{ command: "vgc", name: "Кристаллы", color: c.b },
-		{ command: "bel", name: "Белликариум", color: c.v },
+		{ command: "m vng", name: "Авангард", color: c.b },
+		{ command: "m vgc", name: "Кристаллы", color: c.b },
+		{ command: "m bel", name: "Белликариум", color: c.v },
 		{},
-		{ command: "acraft", name: "Алхимия", color: c.p },
-		{ command: "acraftr", name: "R", color: c.p },
-		{ command: "scraft", name: "Оружка", color: c.o },
-		{ command: "scraftr", name: "R", color: c.o },
-		{ command: "pcraft", name: "Броня", color: c.y },
-		{ command: "pcraftr", name: "R", color: c.y },
-		{ command: "ecraft", name: "Грава", color: c.lb },
-		{ command: "ecraftr", name: "R", color: c.lb }
+		{ command: "m acraft", name: "Алхимия", color: c.p },
+		{ command: "m acraftr", name: "R", color: c.p },
+		{ command: "m scraft", name: "Оружка", color: c.o },
+		{ command: "m scraftr", name: "R", color: c.o },
+		{ command: "m pcraft", name: "Броня", color: c.y },
+		{ command: "m pcraftr", name: "R", color: c.y },
+		{ command: "m ecraft", name: "Грава", color: c.lb },
+		{ command: "m ecraftr", name: "R", color: c.lb }
 	],
 	"Основное": [
 		// https://github.com/tera-classic-mods/auto-loot

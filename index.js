@@ -57,22 +57,6 @@ module.exports = function ProxyMenu(mod) {
 
 	mod.game.initialize("inventory");
 
-	Object.keys(mod.settings.npc).forEach(name => {
-		mod.command.add(name, () => {
-			const npc = mod.settings.npc[name];
-			const buffer = Buffer.alloc(4);
-
-			buffer.writeUInt32LE(npc.value);
-			mod.send("C_REQUEST_CONTRACT", 50, {
-				type: npc.type,
-				target: npc.gameId,
-				value: npc.value,
-				name: "",
-				data: buffer
-			});
-		});
-	});
-
 	if (menu.pages !== undefined) {
 		Object.values(menu.pages).forEach(page =>
 			bindHotkeys(page)
@@ -262,7 +246,7 @@ module.exports = function ProxyMenu(mod) {
 		mod.command.message("\n".repeat(75));
 	});
 
-	mod.command.add(COMMAND, {
+	const commands = {
 		$none: () => show(),
 		premium: () => {
 			mod.settings.premiumSlotEnabled = !mod.settings.premiumSlotEnabled;
@@ -365,7 +349,25 @@ module.exports = function ProxyMenu(mod) {
 				mod.command.message("Incorrect weather. Available options: normal, snow, dark, night.");
 			}
 		}
+	};
+
+	Object.keys(mod.settings.npc).forEach(name => {
+		commands[name] = () => {
+			const npc = mod.settings.npc[name];
+			const buffer = Buffer.alloc(4);
+
+			buffer.writeUInt32LE(npc.value);
+			mod.send("C_REQUEST_CONTRACT", 50, {
+				type: npc.type,
+				target: npc.gameId,
+				value: npc.value,
+				name: "",
+				data: buffer
+			});
+		};
 	});
+	
+	mod.command.add(COMMAND, commands);
 
 	function cRequestContract(type, target, value, name, dataBuffer) {
 		const buffer = Buffer.alloc(dataBuffer);

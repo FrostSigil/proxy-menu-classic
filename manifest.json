@@ -2,15 +2,15 @@
     "files": {
         "README.md": "9479943cccac58c7f4c7afc805826bc27803a98026875f15566254acb99ce61f",
         "S_DIALOG.def": "0f7aace07a5bb15a0a09350c828c015c7055b6154ccd367f886fb7fafac45802",
-        "index.js": "83a938bac0c2cf98f6db38308f8150ca78d4f3f7c4f36f66368dc3bfcf07f046",
-        "menu.js": "1e79b52ae3d1804d83861352bd08e1e2326c734914fecb7cb92d1f1e1350b246",
-        "menu_ru.js": "7ba05514cbbeaa18d9103a957283e2da8a178a2a86c92af9ae5d49938eeb2557",
-        "module.json": "3c30e583f183d828c87fd4183257e6a86f343030e26bf812ea799af9d733dd1a",
+        "index.js": "c7e94270b03a81b26fe3326d3817ecc3a4f822d1cecbd6b6d825840a8e4fae4b",
+        "menu.js": "0b6ef970c9838f617f4de20788c6195c589b9e43f3dac1c13bd3b183df4b73b1",
+        "menu_ru.js": "0006b97f06deb03f929b53ce6a957ffc075b890d4f653979b0f7a28812c4ff80",
+        "module.json": "112b1b7d5fbe3121fa988fa75abc192c4d02f422109654ec3f92883853ecb4f9",
         "node_modules/moment-timezone/data/meta/latest.json": "1574fc70d8fd2554031aed90b1424371d6775bd9c0cab5cbd20e04753984f501",
         "node_modules/moment-timezone/data/packed/latest.json": "ccdc6aa04df161122e948b89e0629618094a55fe7e03a70cf88952f823273b2b",
         "node_modules/moment-timezone/index.js": "b93bc1a0ab15d56e12f0e281bf005d39166952d9208b828e8d056563f3ff1fd1",
         "node_modules/moment-timezone/moment-timezone.js": "183f03352f1e65da2130b89bced0e02d59bdff8a20eb844d98a803462ec99b4c",
         "node_modules/moment/index.js": "f0075677245792b113c801a56bd36682461596ac3830e1d1eac2499ad1460184",
-        "settings_migrator.js": "74114b257d8648b20150811b970acef355f701ce954b508be628c1dc723c6c66"
+        "settings_migrator.js": "de5ed72342de64fcf944905b2c56b370c33514ac16ebf41db3bd09e71dce6a00"
     }
 }
