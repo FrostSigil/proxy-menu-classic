@@ -121,6 +121,8 @@ module.exports.pages = {
 			{},
 			{ command: "m drunk", name: "Disabling drunk screen", color: c.lg },
 			{},
+			{ command: "m look", name: "View players by clicking on their nickname in the chat", color: c.lb },
+			{},
 			{ command: "m spamf", name: "JustSpam F", color: c.lv },
 			{},
 			{ command: "m autoaccept", name: "Auto accept party", color: c.lg }

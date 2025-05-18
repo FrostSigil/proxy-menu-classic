@@ -195,6 +195,13 @@ module.exports = function ProxyMenu(mod) {
 				return false;
 		}
 	});
+	
+	mod.hook("S_ANSWER_INTERACTIVE", 2, event => { // осмотр по клику на ник в чате
+		if (!mod.settings.look) return;
+        mod.send("C_REQUEST_USER_PAPERDOLL_INFO", 1, {
+            name: event.name
+        });
+    });
 
 	mod.hook("S_PLAY_MOVIE", 1, (event) => { // блокировка видео заставок
 		if (mod.settings.blockscene) {
@@ -320,6 +327,10 @@ module.exports = function ProxyMenu(mod) {
 		drunk: () => {
 			mod.settings.drunk = !mod.settings.drunk;
 			mod.command.message(`Disabling drunk screen: ${mod.settings.drunk ? "On" : "Off"}`);
+		},
+		look: () => {
+			mod.settings.look = !mod.settings.look;
+			mod.command.message(`Inspect players via chat : ${mod.settings.look ? "Enabled" : "Disabled"}`);
 		},
 		scene: () => {
 			mod.settings.blockscene = !mod.settings.blockscene;

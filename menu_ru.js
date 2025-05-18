@@ -123,6 +123,8 @@ module.exports.pages = {
 			{},
 			{ command: "m drunk", name: "Отключение пьяного экрана", color: c.lg },
 			{},
+			{ command: "m look", name: "Осмотр игроков по клику на ник в чате", color: c.lb },
+			{},
 			{ command: "m spamf", name: "Just spam F диалогов с NPC", color: c.lv },
 			{},
 			{ command: "m autoaccept", name: "Авто принятие приглашения в пати", color: c.g },

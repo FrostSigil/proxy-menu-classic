@@ -7,6 +7,7 @@ const DefaultSettings = {
 	autoaccept: false,
 	blockscene: false,
 	drunk: false,
+	look: false,
 	spamf: false,
 	aeromanual: false,
 	aero: "normal",
